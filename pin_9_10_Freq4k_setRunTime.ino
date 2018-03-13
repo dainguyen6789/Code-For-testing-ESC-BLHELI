@@ -99,7 +99,7 @@ void loop() {
     }
     if ( num_loop<=1 )
     {
-       delay(300);
+       delay(3000);
     }
     else
        delay(5);
