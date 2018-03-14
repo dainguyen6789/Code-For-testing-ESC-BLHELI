@@ -124,8 +124,8 @@ void loop() {
 //  analogWrite(led,80);
 //  analogWrite(10,80); 
       delay(4000);
-  analogWrite(led,0);
-  analogWrite(10,0); 
+  analogWrite(led,10);
+  analogWrite(10,10); 
   while(1)
   {
    }
