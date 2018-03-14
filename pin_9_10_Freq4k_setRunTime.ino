@@ -14,7 +14,7 @@
  */
  /*N “electrical revolutions” equates to one mechanical revolution, where N is the number of magnet pairs.*/
 
-int pwm_1 = 11,pwm_2 = 6;           // the PWM pin the LED is attached to
+int pwm_1 = 11,pwm_2 = 10;           // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount =2;     // how many points to fade the LED by
 int num_loop=0;
@@ -24,13 +24,13 @@ void setup() {
   // declare pin 9 to be an output:
   pinMode(pwm_1, OUTPUT);
   //analogWrite(led, 0);
-  setPwmFrequency(pwm_1, 8);           //  3921.16/2 Hz
+  setPwmFrequency(pwm_1, 8);           //  0x02    8     3921.16/2 Hz
   //analogWrite(led, 0);
   
    // declare pin 10 to be an output:
    pinMode(pwm_2, OUTPUT);
   //analogWrite(10, 0);
-  setPwmFrequency(pwm_2, 8);           //  0x02     8     7812.5/2 Hz
+  setPwmFrequency(pwm_2, 8);           //  0x02    8     3921.16/2 Hz
   //analogWrite(10, 0);
 //  analogWrite(led,25);
 //  analogWrite(10,25);
@@ -122,10 +122,10 @@ void loop() {
   analogWrite(pwm_1,56);
   analogWrite(pwm_2,56); 
     delay(4000);
-//  analogWrite(led,80);
-//  analogWrite(10,80); 
-      delay(4000);
-  analogWrite(pwm_1,0);
+////  analogWrite(led,80);
+////  analogWrite(10,80); 
+//      delay(4000);
+//  analogWrite(pwm_1,0);
 //  analogWrite(pwm_2,0); 
   while(1)
   {
