@@ -24,16 +24,16 @@ void setup() {
   // declare pin 9 to be an output:
   pinMode(led, OUTPUT);
   //analogWrite(led, 0);
-  setPwmFrequency(led, 8);           //  3921.16 Hz
+  setPwmFrequency(led, 32);           //  3921.16 Hz
   //analogWrite(led, 0);
   
    // declare pin 10 to be an output:
-   pinMode(10, OUTPUT);
+   pinMode(5, OUTPUT);
   //analogWrite(10, 0);
-  setPwmFrequency(10, 8);           //  3921.16 Hz
+  setPwmFrequency(5, 8);           //  3921.16 Hz
   //analogWrite(10, 0);
-  analogWrite(led,25);
-  analogWrite(10,25);
+//  analogWrite(led,25);
+//  analogWrite(10,25);
 
   //analogWrite(9, 0);
   //analogWrite(10, 0);
@@ -49,7 +49,8 @@ void setPwmFrequency(int pin, int divisor) {
   0x03      64    490.20   <--DEFAULT
   0x04      256     122.55
   0x05    1024    30.64
-  TCCR1B = (TCCR1B & 0b11111000) | <setting>; */
+  TCCR1B = (TCCR1B & 0b11111000) | <setting>; 
+  All frequencies are in Hz and assume a 16000000 Hz system clock.*/
 
     switch(divisor) {
       case 1: mode = 0x01; break;
@@ -86,14 +87,14 @@ void loop() {
   // command the ESC called PWM, pulse width modulation, where the pulse width will carry the value, 
   // wide pulse means high value, thin pulse means low value
   delay(3000); 
-  while (num_loop<=150)
+  while (num_loop<=100)
   {
     analogWrite(led,brightness);
 
-    analogWrite(10,brightness);
+    analogWrite(5,brightness);
     brightness = brightness + fadeAmount;
     num_loop++;
-    if (brightness <= 0 || brightness >= 150) 
+    if (brightness <= 0 || brightness >= 100) 
     {
       fadeAmount = -2;      
     }
@@ -109,23 +110,23 @@ void loop() {
 //  delay(50);  
   
   analogWrite(led,15);
-  analogWrite(10,15);
+  analogWrite(5,15);
   delay(6000); 
   
   analogWrite(led,0);
-  analogWrite(10,0);
+  analogWrite(5,0);
   delay(4000);
   analogWrite(led,37);
-  analogWrite(10,37);
+  analogWrite(5,37);
   delay(4000);
   analogWrite(led,56);
-  analogWrite(10,56);  
+  analogWrite(5,56);  
     delay(4000);
 //  analogWrite(led,80);
 //  analogWrite(10,80); 
       delay(4000);
   analogWrite(led,0);
-  analogWrite(10,0); 
+  analogWrite(5,0); 
   while(1)
   {
    }
