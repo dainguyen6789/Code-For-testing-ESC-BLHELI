@@ -87,14 +87,14 @@ void loop() {
   // command the ESC called PWM, pulse width modulation, where the pulse width will carry the value, 
   // wide pulse means high value, thin pulse means low value
   delay(3000); 
-  while (num_loop<=100)
+  while (num_loop<=200)
   {
     analogWrite(pwm_1,brightness);
 
     analogWrite(pwm_2,brightness);
     brightness = brightness + fadeAmount;
     num_loop++;
-    if (brightness <= 0 || brightness >= 100) 
+    if (brightness <= 0 || brightness >= 200) 
     {
       fadeAmount = -2;      
     }
