@@ -16,7 +16,7 @@
 
 int led = 11;           // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
-int fadeAmount = 1;     // how many points to fade the LED by
+int fadeAmount =2;     // how many points to fade the LED by
 int num_loop=0;
 //
 // the setup routine runs once when you press reset:
@@ -86,41 +86,46 @@ void loop() {
   // command the ESC called PWM, pulse width modulation, where the pulse width will carry the value, 
   // wide pulse means high value, thin pulse means low value
   delay(3000); 
-  while (num_loop<=500)
+  while (num_loop<=100)
   {
     analogWrite(led,brightness);
 
     analogWrite(10,brightness);
     brightness = brightness + fadeAmount;
     num_loop++;
-    if (brightness <= 0 || brightness >= 255) 
+    if (brightness <= 0 || brightness >= 100) 
     {
-      fadeAmount = -1;      
+      fadeAmount = -2;      
     }
-    if ( num_loop<=1 )
-    {
-       delay(3000);
-    }
-    else
-       delay(5);
+//    if ( num_loop<=1 )
+//    {
+//       delay(30);
+//    }
+//    else
+//       delay(10);
   }
 //  analogWrite(led,0);
 //  analogWrite(10,0);
 //  delay(50);  
   
-  analogWrite(led,55);
-  analogWrite(10,55);
+  analogWrite(led,15);
+  analogWrite(10,15);
   delay(6000); 
   
-//  analogWrite(led,45);
-//  analogWrite(10,45);
-//  delay(6000);  
-//  
-//  analogWrite(led,75);
-//  analogWrite(10,75);
-//  delay(6000); 
-//  analogWrite(led,0);
-//  analogWrite(10,0);
+  analogWrite(led,0);
+  analogWrite(10,0);
+  delay(4000);
+  analogWrite(led,37);
+  analogWrite(10,37);
+  delay(4000);
+  analogWrite(led,56);
+  analogWrite(10,56);  
+    delay(4000);
+//  analogWrite(led,80);
+//  analogWrite(10,80); 
+      delay(4000);
+  analogWrite(led,0);
+  analogWrite(10,0); 
   while(1)
   {
    }
