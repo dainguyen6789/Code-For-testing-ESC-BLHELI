@@ -13,7 +13,7 @@
  This example code is in the public domain.
  */
  /*N “electrical revolutions” equates to one mechanical revolution, where N is the number of magnet pairs.*/
-
+//Change the ESC firmware to MAIN because they have some bugs (!?) that make the motor fluctuate when PWM is enable
 int led = 11;           // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount =2;     // how many points to fade the LED by
