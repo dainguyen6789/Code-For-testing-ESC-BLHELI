@@ -14,7 +14,8 @@
  */
  /*N “electrical revolutions” equates to one mechanical revolution, where N is the number of magnet pairs.*/
 //Change the ESC firmware to MAIN because they have some bugs (!?) that make the motor fluctuate when PWM is enable
-int led = 11;           // the PWM pin the LED is attached to
+int pwm_1 = 11;           // the PWM pin the pwm_1 is attached to
+int pwm_2 = 10;           // the PWM pin the pwm_1 is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount =2;     // how many points to fade the LED by
 int num_loop=0;
@@ -22,21 +23,21 @@ int num_loop=0;
 // the setup routine runs once when you press reset:
 void setup() {
   // declare pin 9 to be an output:
-  pinMode(led, OUTPUT);
-  //analogWrite(led, 0);
-  setPwmFrequency(led, 8);           //  3921.16 Hz
-  //analogWrite(led, 0);
+  pinMode(pwm_1, OUTPUT);
+  //analogWrite(pwm_1, 0);
+  setPwmFrequency(pwm_1, 8);           //  3921.16 Hz
+  //analogWrite(pwm_1, 0);
   
-   // declare pin 10 to be an output:
-   pinMode(10, OUTPUT);
-  //analogWrite(10, 0);
-  setPwmFrequency(10, 8);           //  3921.16 Hz
-  //analogWrite(10, 0);
-  analogWrite(led,0);
-  analogWrite(10,0);
+   // declare pin pwm_2 to be an output:
+   pinMode(pwm_2, OUTPUT);
+  //analogWrite(pwm_2, 0);
+  setPwmFrequency(pwm_2, 8);           //  3921.16 Hz
+  //analogWrite(pwm_2, 0);
+  analogWrite(pwm_1,0);
+  analogWrite(pwm_2,0);
 
   //analogWrite(9, 0);
-  //analogWrite(10, 0);
+  //analogWrite(pwm_2, 0);
 
 }
 void setPwmFrequency(int pin, int divisor) {
@@ -81,16 +82,16 @@ void setPwmFrequency(int pin, int divisor) {
 // the loop routine runs over and over again forever:
 void loop() {
   // set the brightness of pin 9:
-  // analogWrite(led,brightness);
+  // analogWrite(pwm_1,brightness);
   // https://distantorion.com/2014/10/24/motor-control/: how to change motor speed The interface to 
   // command the ESC called PWM, pulse width modulation, where the pulse width will carry the value, 
   // wide pulse means high value, thin pulse means low value
   delay(3000); 
   while (num_loop<=100)
   {
-    analogWrite(led,brightness);
+    analogWrite(pwm_1,brightness);
 
-    analogWrite(10,brightness);
+    analogWrite(pwm_2,brightness);
     brightness = brightness + fadeAmount;
     num_loop++;
     if (brightness <= 0 || brightness >= 100) 
@@ -104,28 +105,28 @@ void loop() {
 //    else
 //       delay(10);
   }
-//  analogWrite(led,0);
-//  analogWrite(10,0);
+//  analogWrite(pwm_1,0);
+//  analogWrite(pwm_2,0);
 //  delay(50);  
   
-  analogWrite(led,15);
-  analogWrite(10,15);
+  analogWrite(pwm_1,15);
+  analogWrite(pwm_2,15);
   delay(6000); 
   
-  analogWrite(led,0);
-  analogWrite(10,0);
+  analogWrite(pwm_1,0);
+  analogWrite(pwm_2,0);
   delay(4000);
-  analogWrite(led,37);
-  analogWrite(10,37);
+  analogWrite(pwm_1,37);
+  analogWrite(pwm_2,37);
   delay(4000);
-  analogWrite(led,56);
-  analogWrite(10,56);  
+  analogWrite(pwm_1,56);
+  analogWrite(pwm_2,56);  
   delay(4000);
-  analogWrite(led,114);
-  analogWrite(10,114); 
+  analogWrite(pwm_1,114);
+  analogWrite(pwm_2,114); 
   delay(5000);
-  analogWrite(led,35);
-  analogWrite(10,35); 
+  analogWrite(pwm_1,35);
+  analogWrite(pwm_2,35); 
   
   while(1)
   {
