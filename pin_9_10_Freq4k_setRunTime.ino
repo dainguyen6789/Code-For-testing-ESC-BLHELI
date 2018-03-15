@@ -32,8 +32,8 @@ void setup() {
   //analogWrite(10, 0);
   setPwmFrequency(10, 8);           //  3921.16 Hz
   //analogWrite(10, 0);
-  analogWrite(led,25);
-  analogWrite(10,25);
+  analogWrite(led,0);
+  analogWrite(10,0);
 
   //analogWrite(9, 0);
   //analogWrite(10, 0);
@@ -120,12 +120,13 @@ void loop() {
   delay(4000);
   analogWrite(led,56);
   analogWrite(10,56);  
-    delay(4000);
-//  analogWrite(led,80);
-//  analogWrite(10,80); 
-      delay(4000);
-  analogWrite(led,10);
-  analogWrite(10,10); 
+  delay(4000);
+  analogWrite(led,114);
+  analogWrite(10,114); 
+  delay(5000);
+  analogWrite(led,35);
+  analogWrite(10,35); 
+  
   while(1)
   {
    }
