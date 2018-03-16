@@ -15,7 +15,7 @@
  /*N “electrical revolutions” equates to one mechanical revolution, where N is the number of magnet pairs.*/
 //Change the ESC firmware to MAIN because they have some bugs (!?) that make the motor fluctuate when PWM is enable
 int pwm_1 = 11;           // the PWM pin the pwm_1 is attached to
-int pwm_2 = 10;           // the PWM pin the pwm_1 is attached to
+int pwm_2 = 10;           // the PWM pin the pwm_2 is attached to
 int brightness = 0;    // how bright the LED is
 int fadeAmount =2;     // how many points to fade the LED by
 int num_loop=0;
@@ -86,7 +86,7 @@ void loop() {
   // https://distantorion.com/2014/10/24/motor-control/: how to change motor speed The interface to 
   // command the ESC called PWM, pulse width modulation, where the pulse width will carry the value, 
   // wide pulse means high value, thin pulse means low value
-  delay(3000); 
+//  delay(3000); 
   while (num_loop<=100)
   {
     analogWrite(pwm_1,brightness);
@@ -105,28 +105,37 @@ void loop() {
 //    else
 //       delay(10);
   }
-//  analogWrite(pwm_1,0);
-//  analogWrite(pwm_2,0);
-//  delay(50);  
-  
-  analogWrite(pwm_1,15);
-  analogWrite(pwm_2,15);
-  delay(6000); 
-  
   analogWrite(pwm_1,0);
   analogWrite(pwm_2,0);
+//  delay(50);  
   delay(4000);
-  analogWrite(pwm_1,37);
-  analogWrite(pwm_2,37);
-  delay(4000);
-  analogWrite(pwm_1,56);
-  analogWrite(pwm_2,56);  
-  delay(4000);
-  analogWrite(pwm_1,114);
-  analogWrite(pwm_2,114); 
-  delay(5000);
+  analogWrite(pwm_1,15);
+  analogWrite(pwm_2,15);
+  delay(20);    
+  analogWrite(pwm_1,25);
+  analogWrite(pwm_2,25);
+  delay(20);   
   analogWrite(pwm_1,35);
-  analogWrite(pwm_2,35); 
+  analogWrite(pwm_2,35);
+  delay(20); 
+  
+  analogWrite(pwm_1,40);
+  analogWrite(pwm_2,40);
+  delay(20);
+  analogWrite(pwm_1,50);
+  analogWrite(pwm_2,50);
+  delay(20);
+//  analogWrite(pwm_1,56);
+//  analogWrite(pwm_2,56);  
+  delay(20);
+  analogWrite(pwm_1,60);
+  analogWrite(pwm_2,60); 
+  delay(5000);
+//  analogWrite(pwm_1,35);
+//  analogWrite(pwm_2,35); 
+//  delay(5000);
+  analogWrite(pwm_1,6);
+  analogWrite(pwm_2,6); 
   
   while(1)
   {
